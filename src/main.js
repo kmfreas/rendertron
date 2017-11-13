@@ -28,12 +28,13 @@ const now = require('performance-now');
 const uuidv4 = require('uuid/v4');
 const cache = require('./cache');
 const renderer = require('./renderer');
+const cors = require('cors');
 
 const app = express();
 
 const CONFIG_PATH = path.resolve(__dirname, '../config.json');
 const PROGRESS_BAR_PATH = path.resolve(__dirname, '../node_modules/progress-bar-element/progress-bar.html');
-const PORT = process.env.PORT || '3000';
+const PORT = process.env.PORT || '8000';
 
 let config = {};
 
@@ -59,6 +60,7 @@ app.setConfig = (newConfig) => {
   config.port = oldConfig.port;
 };
 
+app.use(cors());
 app.use(compression());
 app.use('/progress-bar.html', express.static(PROGRESS_BAR_PATH));
 
