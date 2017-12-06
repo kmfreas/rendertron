@@ -34,7 +34,7 @@ const app = express();
 
 const CONFIG_PATH = path.resolve(__dirname, '../config.json');
 const PROGRESS_BAR_PATH = path.resolve(__dirname, '../node_modules/progress-bar-element/progress-bar.html');
-const PORT = process.env.PORT || '8000';
+const PORT = process.env.PORT || '3100';
 
 let config = {};
 
